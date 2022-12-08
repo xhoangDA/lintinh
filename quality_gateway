@@ -1,0 +1,22 @@
+#!/bin/bash
+
+filter_critical=`awk -F: '{print $68}' $1`
+count_critical=${filter_critical:0:1}
+
+filter_high=`awk -F: '{print $59}' $1`
+count_high=${filter_high:0:1}
+
+filter_medium=`awk -F: '{print $50}' $1`
+count_medium=${filter_medium:0:1}
+
+filter_low=`awk -F: '{print $41}' $1`
+count_low=${filter_low:0:1}
+
+filter_info=`awk -F: '{print $32}' $1`
+count_info=${filter_info:0:1}
+
+echo "Number of critical vulnerabilities: $count_critical" 
+echo "Number of high vulnerabilities: $count_high"
+echo "Number of medium vulnerabilities: $count_medium"
+echo "Number of low vulnerabilities: $count_low"
+echo "Number of info vulnerabilities: $count_info"
